@@ -16,7 +16,12 @@ knitr::opts_chunk$set(
 # packageC
 
 <!-- badges: start -->
-
+![GitHub repo size](https://img.shields.io/github/repo-size/jstatlab/packageC)
+![GitHub repo file count (file type)](https://img.shields.io/github/directory-file-count/jstatlab/packageC)
+![Codecov](https://img.shields.io/codecov/c/github/jstatlab/packageC)
+![GitHub R package version (subdirectory of monorepo)](https://img.shields.io/github/r-package/v/jstatlab/packageC)
+![GitHub top language](https://img.shields.io/github/languages/top/jstatlab/packageC)
+![GitHub License](https://img.shields.io/github/license/jstatlab/packageC)
 <!-- badges: end -->
 
 The goal of packageC is to make a minimal example using C code in R package.
