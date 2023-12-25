@@ -21,3 +21,16 @@ A tragetory from those parameters
 \description{
 A function to model population dynamics based on Ricker model
 }
+\examples{
+nburn <- 100
+n <- 50
+
+y0_true <- 1
+sig_true <- 0.1
+r_true <- 10
+
+Ntrue <- ricker_simulation(n = n, nburn = nburn, r = r_true, y0 = y0_true)
+yobs <- Ntrue * exp(rnorm(n, 0, sig_true))
+
+plot(yobs, type = 'b')
+}
