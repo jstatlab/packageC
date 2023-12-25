@@ -8,18 +8,22 @@
 
 SEXP exp_smooth_c (SEXP y_, SEXP a_) {
 
+  // C objects
   int n;
   double *y, *ys;
   double a;
+
+  // R object
   SEXP ys_;
 
   y_ = PROTECT(Rf_coerceVector(y_, REALSXP));
   n = Rf_length(y_);
   ys_ = PROTECT(Rf_allocVector(REALSXP, n));
 
-  a = REAL(a_)[0];    // R -> C
-  y = REAL(y_);       // R -> C
-  ys = REAL(ys_);     // R -> C
+  // Initilize C objects
+  a = REAL(a_)[0];    // R -> C:  a_ -> a
+  y = REAL(y_);       // R -> C:  y_ -> y
+  ys = REAL(ys_);     // R -> C: ys_ -> ys
 
   ys[0] = y[0];
   for (int i = 1 ; i < n ; ++i) {
