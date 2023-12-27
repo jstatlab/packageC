@@ -6,7 +6,7 @@
 #'
 #' @return The likelihood (dbl)
 #' @export
-simulate_likelihood <- function(logr, nsim, sigma_true) {
+simulate_likelihood <- function(logr, n, nsim, sigma_true) {
   r <- exp(logr)
   s1 <- numeric(nsim)
   s2 <- numeric(nsim)
