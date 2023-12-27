@@ -2,4 +2,5 @@
 
 export(exp_smooth)
 export(ricker_simulation)
+export(simulate_likelihood)
 useDynLib(packageC, .registration = TRUE)
