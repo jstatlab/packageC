@@ -7,6 +7,8 @@
 //' @param `x` Value to return its density
 //' @param `sigma` The variance associated
 //' @return The probability density function of `x`
+//' @useDynLib packageC, .registration = TRUE
+//' @importFrom Rcpp evalCpp
 //' @export
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
