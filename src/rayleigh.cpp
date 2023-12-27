@@ -1,15 +1,14 @@
 #include <RcppArmadillo.h>
 
-//' @title Rayleigh's Probability Density Function
+//' Rayleigh's Probability Density Function
 //'
-//' @description
 //' Function to calculate the Rayleigh probability density function
 //'
 //' @param `x` Value to return its density
 //' @param `sigma` The variance associated
 //' @return The probability density function of `x`
 //' @export
-// [[Rcpp::depends(RcppArmadilho)]]
+// [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
 double f_rayleigh(double x, double sigma) {
   double y = 0;
