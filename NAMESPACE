@@ -3,4 +3,5 @@
 export(exp_smooth)
 export(ricker_simulation)
 export(simulate_likelihood)
+importFrom(Rcpp,sourceCpp)
 useDynLib(packageC, .registration = TRUE)
