@@ -2,6 +2,7 @@
 
 export(exp_smooth)
 export(mean_krs)
+export(mean_var_krs)
 export(ricker_simulation)
 export(simulate_likelihood)
 importFrom(Rcpp,sourceCpp)
