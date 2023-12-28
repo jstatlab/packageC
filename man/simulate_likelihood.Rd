@@ -4,10 +4,12 @@
 \alias{simulate_likelihood}
 \title{Simulation of the likelihood}
 \usage{
-simulate_likelihood(logr, nsim, sigma_true)
+simulate_likelihood(logr, n, nsim, sigma_true)
 }
 \arguments{
 \item{logr}{log of r param (dbl)}
+
+\item{n}{Number of steps (int)}
 
 \item{nsim}{Simulation's number (int)}
 

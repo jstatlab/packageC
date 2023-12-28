@@ -1,6 +1,7 @@
 #' Simulation of the likelihood
 #'
 #' @param logr log of r param (dbl)
+#' @param n Number of steps (int)
 #' @param nsim Simulation's number (int)
 #' @param sigma_true The true sigma value (dbl)
 #'

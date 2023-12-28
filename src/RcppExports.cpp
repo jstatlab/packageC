@@ -25,11 +25,13 @@ END_RCPP
 }
 
 RcppExport SEXP exp_smooth_c(void *, void *);
+RcppExport SEXP mean_krs_c(void *, void *, void *, void *);
 RcppExport SEXP ricker_simulation_c(void *, void *, void *, void *);
 
 static const R_CallMethodDef CallEntries[] = {
     {"_packageC_f_rayleigh", (DL_FUNC) &_packageC_f_rayleigh, 2},
     {"exp_smooth_c",        (DL_FUNC) &exp_smooth_c,        2},
+    {"mean_krs_c",          (DL_FUNC) &mean_krs_c,          4},
     {"ricker_simulation_c", (DL_FUNC) &ricker_simulation_c, 4},
     {NULL, NULL, 0}
 };
