@@ -11,6 +11,30 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// boost_mdc
+int boost_mdc(int& a, int& b);
+RcppExport SEXP _packageC_boost_mdc(SEXP aSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int& >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int& >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(boost_mdc(a, b));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_mdc
+int rcpp_mdc(int& a, int& b);
+RcppExport SEXP _packageC_rcpp_mdc(SEXP aSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int& >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int& >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_mdc(a, b));
+    return rcpp_result_gen;
+END_RCPP
+}
 // f_rayleigh
 double f_rayleigh(double x, double sigma);
 RcppExport SEXP _packageC_f_rayleigh(SEXP xSEXP, SEXP sigmaSEXP) {
@@ -30,6 +54,8 @@ RcppExport SEXP mean_var_krs_c(void *, void *, void *, void *);
 RcppExport SEXP ricker_simulation_c(void *, void *, void *, void *);
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_packageC_boost_mdc", (DL_FUNC) &_packageC_boost_mdc, 2},
+    {"_packageC_rcpp_mdc", (DL_FUNC) &_packageC_rcpp_mdc, 2},
     {"_packageC_f_rayleigh", (DL_FUNC) &_packageC_f_rayleigh, 2},
     {"exp_smooth_c",        (DL_FUNC) &exp_smooth_c,        2},
     {"mean_krs_c",          (DL_FUNC) &mean_krs_c,          4},
