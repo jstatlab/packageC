@@ -33,6 +33,23 @@ rcpp_mdc <- function(a, b) {
 #' @seealso \code{\link{riwishart}}
 #' @useDynLib packageC, .registration = TRUE
 #' @importFrom Rcpp evalCpp
+#' @examples
+#' #Call with the following data:
+#' rwishart(3, diag(2))
+#'
+#' # Validation
+#' set.seed(1337)
+#' S = toeplitz((10:1)/10)
+#' n = 10000
+#' o = array(dim = c(10,10,n))
+#' for(i in 1:n){
+#' o[,,i] = rwishart(20, S)
+#' }
+#' mR = apply(o, 1:2, mean)
+#' Va = 20*(S^2 + tcrossprod(diag(S)))
+#' vR = apply(o, 1:2, var)
+#' stopifnot(all.equal(vR, Va, tolerance = 1/16))
+#'
 #' @export
 rwishart <- function(df, S) {
     .Call(`_packageC_rwishart`, df, S)
@@ -46,6 +63,8 @@ rwishart <- function(df, S) {
 #' @seealso \code{\link{rwishart}}
 #' @useDynLib packageC, .registration = TRUE
 #' @importFrom Rcpp evalCpp
+#' @examples
+#' riwishart(3, diag(2))
 #' @export
 riwishart <- function(df, S) {
     .Call(`_packageC_riwishart`, df, S)

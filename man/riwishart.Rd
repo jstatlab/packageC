@@ -17,6 +17,9 @@ A \code{matrix} that is an inverse wishart distribution.
 \description{
 Creates a random inverse wishart distribution when given degrees of freedom and a sigma matrix.
 }
+\examples{
+riwishart(3, diag(2))
+}
 \seealso{
 \code{\link{rwishart}}
 }
