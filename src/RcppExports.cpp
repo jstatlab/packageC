@@ -35,6 +35,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rwishart
+arma::mat rwishart(unsigned int df, const arma::mat& S);
+RcppExport SEXP _packageC_rwishart(SEXP dfSEXP, SEXP SSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< unsigned int >::type df(dfSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type S(SSEXP);
+    rcpp_result_gen = Rcpp::wrap(rwishart(df, S));
+    return rcpp_result_gen;
+END_RCPP
+}
+// riwishart
+arma::mat riwishart(unsigned int df, const arma::mat S);
+RcppExport SEXP _packageC_riwishart(SEXP dfSEXP, SEXP SSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< unsigned int >::type df(dfSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type S(SSEXP);
+    rcpp_result_gen = Rcpp::wrap(riwishart(df, S));
+    return rcpp_result_gen;
+END_RCPP
+}
 // f_rayleigh
 double f_rayleigh(double x, double sigma);
 RcppExport SEXP _packageC_f_rayleigh(SEXP xSEXP, SEXP sigmaSEXP) {
@@ -56,6 +80,8 @@ RcppExport SEXP ricker_simulation_c(void *, void *, void *, void *);
 static const R_CallMethodDef CallEntries[] = {
     {"_packageC_boost_mdc", (DL_FUNC) &_packageC_boost_mdc, 2},
     {"_packageC_rcpp_mdc", (DL_FUNC) &_packageC_rcpp_mdc, 2},
+    {"_packageC_rwishart", (DL_FUNC) &_packageC_rwishart, 2},
+    {"_packageC_riwishart", (DL_FUNC) &_packageC_riwishart, 2},
     {"_packageC_f_rayleigh", (DL_FUNC) &_packageC_f_rayleigh, 2},
     {"exp_smooth_c",        (DL_FUNC) &exp_smooth_c,        2},
     {"mean_krs_c",          (DL_FUNC) &mean_krs_c,          4},

@@ -3,7 +3,6 @@
 #include <boost/integer/common_factor_rt.hpp>
 // [[Rcpp::plugins("cpp11")]]
 // [[Rcpp::plugins("cpp17")]]
-// [[Rcpp::depends(BH)]]
 
 using namespace Rcpp;
 
