@@ -1,0 +1,98 @@
+---
+title: "packageC"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{packageC}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## The function `exp_smooth()` smooths a time series.
+
+```{r exp_smooth}
+library(packageC)
+
+set.seed(10)
+y <- cumsum(rnorm(1e5))
+ys <- exp_smooth(y, 0.8)
+plot(y, col = "grey80")
+lines(ys, col = "red")
+```
+
+## Model a kernel regression model smoother (KRS) based on a normal distribution.
+
+```{r mean_krs}
+set.seed(998)
+nobs <- 200
+x <- runif(nobs)
+y <- sin(4*pi*x^3) + rnorm(nobs, 0, 0.2)
+plot(x, y)
+x0 <- seq(0, 1, length.out = 1000)
+fit1 <- mean_krs(y, x, x0, 0.06)
+fit2 <- mean_krs(y, x, x0, 0.02)
+plot(x, y, col = "grey")
+lines(x0, fit1, col = 2)
+lines(x0, fit2, col = 4)
+```
+
+## Model a kernel regression model smoother (KRS) based on a normal distribution and bandwidth estimation.
+
+```{r mean_var_krs}
+set.seed(998)
+nobs <- 200
+x <- runif(nobs)
+y <- sin(4*pi*x^3) + rnorm(nobs, 0, 0.2)
+plot(x, y)
+x0 <- seq(0, 1, length.out = 1000)
+fit1 <- mean_var_krs(y, x, x0, 0.01)
+fit2 <- mean_var_krs(y, x, x0, 0.03)
+fit3 <- mean_var_krs(y, x, x0, 0.06)
+plot(x, y, col = "grey")
+lines(x0, fit1, col = 2)
+lines(x0, fit2, col = 4)
+lines(x0, fit3, col = 1)
+```
+
+## Ricker Simulation Based on Ricker Model
+
+```{r ricker_simulation}
+nburn <- 100
+n <- 50
+
+y0_true <- 1
+sig_true <- 0.1
+r_true <- 10
+
+Ntrue <- ricker_simulation(n = n, nburn = nburn, r = r_true, y0 = y0_true)
+yobs <- Ntrue * exp(rnorm(n, 0, sig_true))
+
+plot(yobs, type = 'b')
+```
+
+## Random Number from Wishart distribution
+
+```{r rwishart}
+rwishart(3, diag(2))
+# Validation
+set.seed(1337)
+S = toeplitz((10:1)/10)
+n = 10000
+o = array(dim = c(10,10,n))
+for(i in 1:n){
+  o[,,i] = rwishart(20, S)
+}
+mR = apply(o, 1:2, mean)
+Va = 20*(S^2 + tcrossprod(diag(S)))
+vR = apply(o, 1:2, var)
+stopifnot(all.equal(vR, Va, tolerance = 1/16))
+```
+
+
+
