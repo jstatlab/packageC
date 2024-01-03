@@ -1,7 +1,7 @@
 utils::citHeader("To cite packageC in publications use:")
 
 bibentry(
-  bibtype  = "Article",
+  bibtype  = "Manual",
   title    = "PackageC",
   author   = "JJ",
   journal  = "Journal",
