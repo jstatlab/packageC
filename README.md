@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/jstatlab/packageC/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jstatlab/packageC/actions/workflows/R-CMD-check.yaml)
 ![GitHub repo
 size](https://img.shields.io/github/repo-size/jstatlab/packageC)
 ![GitHub repo file count (file
@@ -16,6 +17,7 @@ monorepo)](https://img.shields.io/github/r-package/v/jstatlab/packageC)
 language](https://img.shields.io/github/languages/top/jstatlab/packageC)
 ![GitHub
 License](https://img.shields.io/github/license/jstatlab/packageC)
+
 <!-- badges: end -->
 
 The goal of packageC is to make a minimal example using C code in R
